@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feiertagszuschlagsrechner</title>
+  <title>Urlaubsabgeltungsrechner</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -12,24 +12,24 @@
   <div class="app-wrapper">
     <div class="calculator-container">
 
-      <h1 id="main-title">Feiertagszuschlagsrechner</h1>
-      <p class="subtitle" id="subtitle">Berechnen Sie Ihren Lohn mit Feiertagszuschlag</p>
+      <h1 id="main-title">Urlaubsabgelt berechnen</h1>
+      <p class="subtitle" id="subtitle">Berechnen Sie Ihre Urlaubsabgeltung</p>
 
       <form id="calculator-form">
 
         <div class="form-group">
-          <label for="hourly-wage">Brutto-Stundenlohn (€)</label>
-          <input type="number" id="hourly-wage" min="0" step="0.01" required>
+          <label for="vacation-days">Anzahl der restlichen Urlaubstage</label>
+          <input type="number" id="vacation-days" min="0" step="0.5" required>
         </div>
 
         <div class="form-group">
-          <label for="holiday-percentage">Prozentsatz Feiertagszuschlag (%)</label>
-          <input type="number" id="holiday-percentage" min="0" step="0.1" required>
+          <label for="monthly-income">Durchschnittliches Bruttomonatseinkommen (€)</label>
+          <input type="number" id="monthly-income" min="0" step="0.01" required>
         </div>
 
         <div class="form-group">
-          <label for="holiday-hours">Stundenanzahl der Feiertagsschicht</label>
-          <input type="number" id="holiday-hours" min="0" step="0.5" required>
+          <label for="working-days">Arbeitstage pro Woche</label>
+          <input type="number" id="working-days" min="1" max="7" step="1" required>
         </div>
 
         <div class="button-group">
@@ -42,17 +42,37 @@
       <div class="error-message" id="error-message"></div>
 
       <div class="result-section" id="result-section">
+
         <div class="result-item">
-          <div class="result-label">
-            Lohn inklusive Feiertagszuschlag, brutto
-          </div>
+          <div class="result-label">Ihre Urlaubsabgeltung</div>
           <div class="result-value" id="final-amount"></div>
         </div>
+
+        <div class="calculation-steps">
+          <h3>Berechnungsschritte:</h3>
+
+          <div class="step">
+            <span class="step-label">1. Quartalsgehalt:</span>
+            <span id="quarterly-salary"></span>
+          </div>
+
+          <div class="step">
+            <span class="step-label">2. Wochengehalt:</span>
+            <span id="weekly-salary"></span>
+          </div>
+
+          <div class="step">
+            <span class="step-label">3. Tagesgehalt:</span>
+            <span id="daily-salary"></span>
+          </div>
+
+        </div>
+
       </div>
 
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
